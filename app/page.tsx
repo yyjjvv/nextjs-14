@@ -1,3 +1,10 @@
+import Navigation from "../components/navigation";
+
 export default function app() {
-    return <h1>NextJS!</h1>;
+    return (
+        <div>
+            <Navigation />
+            <h1>Hello!</h1>
+        </div>
+    );
 }
