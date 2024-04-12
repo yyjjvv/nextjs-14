@@ -7,7 +7,6 @@ import { useState } from "react";
 
 export default function Navigation() {
     const path = usePathname();
-    console.log(path);
     const [count, setCount] = useState(0);
 
     return (
