@@ -1,28 +1,19 @@
 // () doesm't effect to URL. It just the group
-"use client"
-import { useEffect, useState } from "react";
 
-// export const metadata = {
-//     title: "Home",
-// };
+export const metadata = {
+    title: "Home",
+};
 
-export default function Page() {
-    const [isLoading, setIsLoading] = useState(true);
-    const [movies, setMovies] = useState([]);
+const URL = "https://nomad-movies.nomadcoders.workers.dev/movies";
+const getMovies = async () => {
+    await new Promise((resolve) => setTimeout(resolve, 5000));
+    const response = await fetch(URL); //자동으로 페치된 데이터 캐싱
+    const json = await response.json();
+    return json;
+};
 
-    const getMovies = async () => {
-        const response = await fetch(
-            "https://nomad-movies.nomadcoders.workers.dev/movies"
-        );
-        const json = await response.json();
-        console.log(json)
-        setMovies(json);
-        setIsLoading(false);
-    };
+export default async function HomePage() {
+    const movies = await getMovies();
 
-    useEffect(() => {
-        getMovies();
-    }, []);
-
-    return <div>{isLoading ? "Loading..." : JSON.stringify(movies)}</div>;
+    return <div>{JSON.stringify(movies)}</div>;
 }
