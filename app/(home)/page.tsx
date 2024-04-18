@@ -1,4 +1,4 @@
-// () doesm't effect to URL. It just the group
+//NOTE: () doesm't effect to URL. It just the group
 
 import Link from "next/link";
 
@@ -15,7 +15,7 @@ const getMovies = async () => {
 };
 
 export default async function HomePage() {
-    //async 사용 이유: 로딩이 먼저 이루어져야하기 때문
+    //NOTE: async 사용 이유: data fetching이 이루어지기 때문. 로딩 처리도 가능해짐
     const movies = await getMovies();
 
     return (

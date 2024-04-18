@@ -22,6 +22,7 @@ export default async function MovieDetail({
 }: {
     params: { id: string };
 }) {
+    // NOTE: Promise.all의 문제점: 개별 처리가 되지 않음 => Suspense 컴포넌트로 이를 해결
     // const [movie, videos] = await Promise.all([getMovie(id), getVideos(id)]);
     return (
         <div>

@@ -1,4 +1,4 @@
-"use client"; //this component need to be hydrated = need to be interactive in client
+"use client"; //NOTE: this component need to be hydrated = need to be interactive in client
 //rendered in backend, hydrated in frontend
 
 import Link from "next/link";
@@ -18,11 +18,6 @@ export default function Navigation() {
                 <li>
                     <Link href="/about-us">About Us</Link>{" "}
                     {path === "/about-us" ? "❤️" : ""}
-                </li>
-                <li>
-                    <button onClick={() => setCount((c) => c + 1)}>
-                        {count}
-                    </button>
                 </li>
             </ul>
         </nav>
