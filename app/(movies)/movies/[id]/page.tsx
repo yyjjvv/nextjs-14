@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { API_URL } from "../../../(home)/page";
-import MovieInfo from "../../../../components/movie-info";
+import MovieInfo, { getMovie } from "../../../../components/movie-info";
 import MovieVideos from "../../../../components/movie-videos";
 
 // async function getMovie(id: string) {
@@ -16,12 +16,18 @@ import MovieVideos from "../../../../components/movie-videos";
 //     const response = await fetch(`${API_URL}/${id}/videos`);
 //     return response.json();
 // }
-
-export default async function MovieDetail({
-    params: { id },
-}: {
+interface IParams {
     params: { id: string };
-}) {
+}
+
+export async function generateMetadata({ params: { id } }: IParams) {
+    const movie = await getMovie(id);
+    return {
+        title: movie.title,
+    };
+}
+
+export default async function MovieDetailPage({ params: { id } }: IParams) {
     // NOTE: Promise.all의 문제점: 개별 처리가 되지 않음 => Suspense 컴포넌트로 이를 해결
     // const [movie, videos] = await Promise.all([getMovie(id), getVideos(id)]);
     return (
