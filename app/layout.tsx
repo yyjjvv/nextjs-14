@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Navigation from "../components/navigation";
+import "../styles/global.css"
 
 export const metadata: Metadata = { // We can use metadata only in page and layout
     title: {
