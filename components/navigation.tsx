@@ -10,7 +10,7 @@ export default function Navigation() {
 
     return (
         <nav className={styles.nav}>
-            <ul className={styles.lists}>
+            <ul>
                 <li>
                     <Link href="/">Home</Link> {path === "/" ? "❤️" : ""}
                 </li>
