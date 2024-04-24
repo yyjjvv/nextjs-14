@@ -1,0 +1,8 @@
+.nav {
+    padding: 50px 100px;
+}
+
+.lists {
+    display: flex;
+    gap: 50px;
+}
